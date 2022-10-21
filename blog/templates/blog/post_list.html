@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Digital Notebook</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Digital Notebook</a></h1>
-        </header>
-
+    <header>
+        <h1><a href="/">Digital Notebook</a></h1>
+    </header>
+    <body>  
+    {% for post in posts %}
         <article>
-            <time>published date</time>
-            <h2><a href="">Post 1</a></h2>
-            <p>Post message.</p>
+            <time>published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </article>
-
-        <article>
-            <time>published date</time>
-            <h2><a href="">Post 2</a></h2>
-            <p>Post message.</p>
-        </article>
+    {% endfor %}
     </body>
 </html>
